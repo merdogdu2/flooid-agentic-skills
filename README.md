@@ -1,4 +1,4 @@
-# 🧠 Flooid Demo: Embedding GCP Best Practices into Agentic Workflows
+# Flooid Demo: Embedding GCP Best Practices into Agentic Workflows
 
 ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini_AI-%238E75B2.svg?style=for-the-badge&logo=googlebard&logoColor=white)
