@@ -1,21 +1,64 @@
-# 🧠 Flooid Demo: Embedding GCP Best Practices ("Skills") into Agentic Workflows
+# 🧠 Flooid Demo: Embedding GCP Best Practices into Agentic Workflows
 
-**Track 4: Agentic Context Engineering**
+![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini_AI-%238E75B2.svg?style=for-the-badge&logo=googlebard&logoColor=white)
+![Wiz](https://img.shields.io/badge/Security-Wiz-%231F2D3D.svg?style=for-the-badge&logo=shield&logoColor=white)
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
 
-This directory demonstrates how Flooid can bridge its "Flow Next" factory, Cursor, and Google Antigravity by providing codified GCP standards directly to autonomous AI agents.
+**Track 4: Context Engineering for the 3-Model Autonomous Code Factory**
 
-## 🎯 The Core Concept
-Generic AI coding assistants write *generic* code. By embedding a `SKILL.md` file in your repository, you provide **Context Engineering**. The AI agent reads these rules before it starts typing, ensuring that the generated code is instantly compliant with Flooid's proprietary standards.
+This repository demonstrates how Flooid can bridge its "Flow Next" factory, Cursor, and Google Antigravity by injecting codified GCP engineering standards directly into the AI's context window.
 
-## 📦 What's Included
-* **`SKILL.md`**: The actual configuration file that governs the AI's behavior. It explicitly defines:
-  1. **Strict Tenant Isolation:** Rules for Workload Identity and RBAC.
-  2. **Security:** Mandatory Wiz labels and private endpoint requirements.
-  3. **Tokenomics:** Guidelines for routing tasks between Gemini Flash (speed/cost) and Gemini Pro (complex reasoning).
-  4. **Sandpit Rules:** Automated TTLs and cost-effective sizing for ephemeral environments.
+---
 
-## 🚀 How to Demo This Tomorrow
+## 🏛️ The Agentic Flow: Shifting Governance Left
 
-1. **Show the `SKILL.md` file**: Open the file in your IDE and walk through the rules. Explain that this acts as the "Brain" for Cursor or Antigravity.
-2. **The "Wow" Statement**: *"If I don't use this skill and ask an AI to create a database, I get a generic database. But if I load this skill and say 'Create a sandpit database for client A', the AI automatically adds the Wiz security tags, disables public IPs, sizes it to a cost-effective tier, and sets a 12-hour TTL. It shifts security and compliance entirely to the left—before the code is even written."*
-3. **Connect to Tokenomics**: Highlight Section 3. Explain how this skill repo teaches the agent *when* to spend tokens efficiently across the Gemini models.
+Generic AI coding assistants write *generic* code. By embedding a `SKILL.md` file in the development environment, we enforce **Context Engineering**. The AI agent reads these organizational rules *before* it begins planning or writing, ensuring the generated code is instantly compliant with Flooid's proprietary standards.
+
+```mermaid
+sequenceDiagram
+    participant Dev as Flooid Engineer
+    participant IDE as AI Agent (Cursor / Antigravity)
+    participant Skill as SKILL.md (Governance)
+    participant LLM as Gemini Models (Flash/Pro)
+    participant Output as IaC / Application Code
+
+    Dev->>IDE: "Provision a new GKE Sandpit for retail-client-x"
+    activate IDE
+    IDE->>Skill: Interrogate Flooid Engineering Standards
+    Skill-->>IDE: Inject Rules: Workload Identity, Wiz Labels, Private IP
+    IDE->>LLM: Prompt + User Request + Strict Constraints
+    LLM-->>IDE: Validated, Flooid-compliant Terraform
+    IDE-->>Dev: Propose Code Changes
+    deactivate IDE
+    Dev->>Output: Commit Secure, Compliant Code
+```
+
+---
+
+## 📦 Codified Standards in Action
+
+The embedded [**`SKILL.md`**](./SKILL.md) file acts as the explicit governance brain for the AI. It currently enforces:
+
+### 1. 🛡️ Strict Tenant Isolation
+*   **Action:** Prevents the AI from generating shared or overly permissive service accounts.
+*   **Enforcement:** Requires explicit Workload Identity bindings (`roles/iam.workloadIdentityUser`) and strictly namespace-scoped RBAC (`Role` and `RoleBinding`).
+
+### 2. 🔒 Security & Compliance (Wiz Integration)
+*   **Action:** Ensures seamless integration with Cloud Security Posture Management.
+*   **Enforcement:** Mandates specific annotations/labels on all resources (`flooid.com/security-scan: wiz-enforced`), VPC-native GKE clusters, and strictly private IPs for Cloud SQL.
+
+### 3. ⚖️ Tokenomics & Model Routing
+*   **Action:** Optimizes high-volume agentic token spend across the 3-model factory.
+*   **Enforcement:** Directs the agent to route simple tasks (unit testing, syntax) to **Gemini 1.5 Flash** and complex architectural/adversarial tasks to **Gemini 1.5 Pro**.
+
+### 4. ⏳ Ephemeral "Sandpit" Rules
+*   **Action:** Controls cloud spend for temporary testing environments.
+*   **Enforcement:** If a request involves a "sandpit", the AI automatically sets cost-effective sizing (e.g., `db-custom-2-7680`) and attaches a Time-To-Live label (`flooid.com/ttl: 12h`) for automated garbage collection.
+
+---
+
+## 💡 Strategic Impact for Flooid
+
+*   **Zero-Day Compliance:** Security isn't a checklist step at the end of the pipeline; it is natively generated by the AI on keystroke one.
+*   **Developer Velocity:** Engineers do not need to memorize the exact Workload Identity syntax or Wiz label requirements. The AI handles the boilerplate compliance, letting the engineer focus on business logic.
